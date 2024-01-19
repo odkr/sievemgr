@@ -34,6 +34,8 @@ Contact
 
 * `Home page <https://odkr.codeberg.page/sievemgr>`_
 
+* `Bug tracker <https://github.com/odkr/sievemgr/issues>`_
+
 * `Source code <https://codeberg.org/odkr/sievemgr>`_
 
 * `Mirror <https://notabug.org/odkr/sievemgr>`_
