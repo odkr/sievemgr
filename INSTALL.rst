@@ -9,10 +9,14 @@ REQUIREMENTS
 
 * Python_ ≥ v3.9.
 
+* The `Package Installer for Python`_ (pip)
+
 * Optionally, dnspython_ (see EXTRAS_ below).
 
 
 .. _dnspython: https://www.dnspython.org/
+
+.. _`Package Installer for Python`: https://pypi.org/project/pip/
 
 .. _Python: https://www.python.org/
 
@@ -20,22 +24,34 @@ REQUIREMENTS
 DOWNLOAD
 ========
 
-Clone the repository:
+Download the most recent release:
 
 .. code:: bash
 
-    git clone https://codeberg.org/odkr/sievemgr.git
+    curl -O https://codeberg.org/odkr/sievemgr/releases/download/v0.5.1/sievemgr-0.5.1.tgz
 
+Optionally, verify that the tarball has not been tampered with:
+
+.. code:: bash
+
+    curl -O https://codeberg.org/odkr/sievemgr/releases/download/v0.5.1/sievemgr-0.5.1.tgz.asc
+    gpg --recv-key 8975B184615BC48CFA4549056B06A2E03BE31BE9
+    gpg --verify sievemgr-0.5.1.tgz.asc
+
+Unpack the tarball:
+
+.. code:: bash
+
+    tar -xzf sievemgr-0.5.1.tgz
 
 Go to the top-level directory of the repository:
 
 .. code:: bash
 
-    cd sievemgr
+    cd sievemgr-0.5.1
 
 .. caution::
-    The following instructions assume that the repository
-    is your working directory.
+    The following commands require that the repository is your working directory.
 
 
 INSTALLATION
@@ -54,84 +70,52 @@ Consult the manual of your system's :command:`man` or your shell
 on how to add that directory to your :envvar:`MANPATH`.
 
 .. tip::
-    Copy the manual pages to `$directory`:
+    Copy the manual pages to `$mandir`:
 
     .. code:: bash
 
-        make mandir="$directory" user-install
-
-
-Virtual environment
--------------------
-
-Store the path to the virtual environment in `$venv`:
-
-.. code:: bash
-
-    venv=/opt/odkr/sievemgr
-
-.. caution::
-    The following instructions assume that `venv` is set
-    to the top-level directory of the virtual environment.
-
-
-Create the virtual environment:
-
-.. code:: bash
-
-    python3 -mvenv "$venv"
-
-
-Activate the virtual environment:
-
-
-.. code:: bash
-
-    . "$venv/bin/activate"
-
-
-Install SieveManager:
-
-.. code:: bash
-
-    make prefix="$venv" venv-install
-
-
-Symlink :command:`sievemgr` and the manual pages into directories that
-are in the system's :envvar:`PATH` and :envvar:`MANPATH` respectively:
-
-.. code:: bash
-
-    ln -s "$venv/bin/sievemgr" /usr/local/bin
-    ln -s "$venv/share/man/man1/sievemgr.1" /usr/local/share/man/man1
-    ln -s "$venv/share/man/man5/sieverc.5" /usr/local/share/man/man5
+        make mandir="$mandir" user-install
 
 
 System-wide
 -----------
 
-Configure the installer:
+Create a virtual environment in :file:`/opt/odkr/sievemgr`
+and install SieveManager to that directory:
 
 .. code:: bash
 
-    ./configure
+    make venv-install
 
-
-Install SieveManager:
+Symlink :command:`sievemgr` into a directory in the system's :envvar:`PATH`:
 
 .. code:: bash
 
-    make install
+    ln -s /opt/odkr/sievemgr/bin/sievemgr /usr/local/bin
 
-.. warning::
+.. tip::
+    Install SieveManager to `$installdir` and
+    copy the manual pages to `$mandir`:
 
-    Only try this if you know what you are doing.
+    .. code:: bash
+
+        make installdir="$installdir" mandir="$mandir" venv-install
+
+
+Virtual environment
+-------------------
+
+Install SieveManager to an existing virtual environment at `$venvdir`:
+
+.. code:: bash
+
+    make installdir="$venvdir" venv-install
 
 
 Manual
 ------
 
-SieveManager is but a Python script.
+SieveManager is a simple Python script.
 
 It can also be installed by being copied into
 a directory that is in your :envvar:`PATH`.
@@ -142,10 +126,6 @@ For example:
 
     install sievemgr.py ~/.local/bin/sievemgr
 
-.. note::
-
-    The Python module is only by :command:`make` or :command:`pip`.
-
 
 DE-INSTALLATION
 ===============
@@ -154,10 +134,6 @@ DE-INSTALLATION
 
     make uninstall
 
-.. note::
-    SieveManager can only be uninstalled with :command:`make uninstall`
-    if it was installed with :command:`make` or :command:`pip`.
-
 
 EXTRAS
 ======
@@ -165,11 +141,17 @@ EXTRAS
 Resolving DNS SRV records requires dnspython_,
 which can be installed with::
 
-    pip install dnspython
+    python3 -mpip install dnspython
 
 .. note::
    ManageSieve servers typically do *not* have DNS SRV records.
    SieveManager works well without dnspython.
 
-.. note::
-    :command:`pip` may be called :command:`pip3` on your system.
+
+PACKAGING
+=========
+
+See :doc:`packaging` for an example how to
+package SieveManager for Debian_.
+
+.. _Debian: https://www.debian.org
