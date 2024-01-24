@@ -2,31 +2,29 @@
 SieveManager
 ============
 
-Sieve_ is a programming language for filtering mail. Sieve scripts are
-run by the mail server and must, therefore, be uploaded to the mail server.
-This is where SieveManger comes in. SieveManager is a command-line client
-for uploading, downloading, and managing Sieve scripts using the
-ManageSieve protocol. It can also be used as a Python module.
+SieveManager is a command-line client for uploading, downloading,
+and managing Sieve scripts using the ManageSieve protocol. It can
+also be used as a Python module.
 
-See the manual_ for details.
+See the `home page`_ for details.
 
 .. _Sieve: http://sieve.info
 
-.. _manual: https://odkr.codeberg.page/sievemgr
+.. _homepage: https://odkr.codeberg.page/sievemgr
 
 
 Installation
 ============
 
-See :file:`INSTALL.rst`.
+See **INSTALL.rst**.
 
 
 Documentation
 =============
 
-Use :command:`sievemgr -h` or type "help" in the shell.
+Use **sievemgr -h** or type "help" in the shell.
 
-See the manual_ for details.
+See the homepage_ for details.
 
 
 Contact
