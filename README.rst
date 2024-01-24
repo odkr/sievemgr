@@ -6,7 +6,7 @@ SieveManager is a command-line client for uploading, downloading,
 and managing Sieve scripts using the ManageSieve protocol. It can
 also be used as a Python module.
 
-See the `home page`_ for details.
+See the homepage_ for details.
 
 .. _Sieve: http://sieve.info
 
