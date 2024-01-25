@@ -13,20 +13,6 @@ See the homepage_ for details.
 .. _homepage: https://odkr.codeberg.page/sievemgr
 
 
-Installation
-============
-
-See **INSTALL.rst**.
-
-
-Documentation
-=============
-
-Use **sievemgr -h** or type "help" in the shell.
-
-See the homepage_ for details.
-
-
 Contact
 =======
 
