@@ -13,18 +13,6 @@ The GitHub repository only hosts the issue tracker. See the homepage_ for detail
 .. _homepage: https://odkr.codeberg.page/sievemgr
 
 
-Contact
-=======
-
-* `Home page <https://odkr.codeberg.page/sievemgr>`_
-
-* `Bug tracker <https://github.com/odkr/sievemgr/issues>`_
-
-* `Source code <https://codeberg.org/odkr/sievemgr>`_
-
-* `Mirror <https://notabug.org/odkr/sievemgr>`_
-
-
 Licence
 =======
 
