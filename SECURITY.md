@@ -5,9 +5,6 @@ and passwords are only stored in memory.
 
 ## CAVEATS
 
-Checking whether a server\'s TLS certificate has been revoked requires
-the non-standard Python module [cryptography](https://cryptography.io).
-
 Credentials are stored in memory so that they need not be entered again
 in case of a referral. However, because page-locking is unfeasible in
 Python, they may be swapped out to the disk.
@@ -15,6 +12,9 @@ Python, they may be swapped out to the disk.
 ## VERSIONS
 
 Only the most recent version of SieveManager receives security updates.
+
+Subscribe to <https://codeberg.org/odkr/sievemgr/releases.rss>
+to be notified about new releases.
 
 ## REPORTING
 
